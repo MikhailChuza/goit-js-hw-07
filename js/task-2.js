@@ -31,17 +31,9 @@ const images = [
 ];
 
 
- const gallery = document.querySelector('.gallery');
+const list = document.querySelector(".gallery");
 
-  images.forEach(image => {
-    const li = document.createElement('li');
-    li.classList.add('gallery-item');
+  const listItem = images.map(image => `<li class="gallery-item"><img src="${image.url}" alt="${image.alt}" width="300"/></li>`
+  ).join('');
 
-    const img = document.createElement('img');
-    img.src = image.url;
-    img.alt = image.alt;
-    img.width = 300;
-
-    li.appendChild(img);
-    gallery.appendChild(li);
-  });
+  list.insertAdjacentHTML('beforeend', listItem);
